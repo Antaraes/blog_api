@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { postStatus } = require("@/constants/status");
+const { postStatus } = require("../constants/status");
 
 const blogSchema = mongoose.Schema(
   {
@@ -9,6 +9,7 @@ const blogSchema = mongoose.Schema(
     },
     content: {
       type: String,
+      required: true,
     },
     url_list: {
       type: [String],
