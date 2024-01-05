@@ -1,6 +1,7 @@
-const { Signin_validate_schema, Signup_validate_schema } = require("./user.validate");
+const { SIGNIN_VALIDATE_SCHEMA, SIGNUP_VALIDATE_SCHEMA } = require("./user.validate");
+const { userRouteConst } = require("../constants/routes");
 
 module.exports = {
-  "/auth/signin": Signin_validate_schema,
-  "/auth/signup": Signup_validate_schema,
+  [userRouteConst.signin]: SIGNIN_VALIDATE_SCHEMA,
+  [userRouteConst.signup]: SIGNUP_VALIDATE_SCHEMA,
 };
