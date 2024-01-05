@@ -1,9 +1,13 @@
+const userService = require("../services/user.service");
+const { success, error } = require("./base.controller");
+
 const getUserDetails = (req, res) => {
   res.status(200).json("Hello I'm a user");
 };
 
 const signup = (req, res) => {
-  res.status(200).json(req.body);
+  const data = userService.createUser(req.body);
+  res.status(200).json(data);
 };
 
 const signin = (req, res) => {
@@ -14,9 +18,14 @@ const logout = (req, res) => {
   res.status(200).json("Logout");
 };
 
-const getUserById = (req, res) => {
-  const { id } = req.params;
-  res.status(200).json(id);
+const getUserById = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const data = await userService.getUserById(id);
+    success(res, "User Found", data);
+  } catch (err) {
+    error(res, err.message);
+  }
 };
 const getUserFilter = (req, res) => {
   res.status(200).json(req.query);

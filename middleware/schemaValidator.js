@@ -1,4 +1,5 @@
 const schemas = require("../validators/validate");
+const { handler } = require("./errorHandler");
 
 const supportedMethods = ["post", "put", "delete", "patch"];
 

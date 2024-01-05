@@ -19,7 +19,7 @@ router.post(userRouteConst.signup, schemaValidator(userRouteConst.signup), signu
 router.post(userRouteConst.signin, schemaValidator(userRouteConst.signin), signin);
 router.get(userRouteConst.getUserById, getUserById);
 router.post(userRouteConst.logout, logout);
-router.patch(userRouteConst.changeUserStatus, changeUserStatus);
+router.patch(userRouteConst.updateUserStatus, changeUserStatus);
 router.patch(userRouteConst.updateUserById, updateUserById);
 
 module.exports = router;
