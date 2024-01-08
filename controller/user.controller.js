@@ -1,21 +1,10 @@
+const { generateToken } = require("../helper/auth.helper");
+const authService = require("../services/auth.service");
 const userService = require("../services/user.service");
 const { success, error } = require("./base.controller");
 
 const getUserDetails = (req, res) => {
-  res.status(200).json("Hello I'm a user");
-};
-
-const signup = (req, res) => {
-  const data = userService.createUser(req.body);
-  res.status(200).json(data);
-};
-
-const signin = (req, res) => {
-  res.status(200).json(req.body);
-};
-
-const logout = (req, res) => {
-  res.status(200).json("Logout");
+  success(res, "User details", req.user);
 };
 
 const getUserById = async (req, res) => {
@@ -46,8 +35,5 @@ module.exports = {
   updateUserById,
   changeUserStatus,
   getUserDetails,
-  logout,
-  signup,
   getUserById,
-  signin,
 };

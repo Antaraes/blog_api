@@ -1,7 +1,6 @@
 const User = require("../models/user.model");
 
 const userService = {
-  // Create a new user
   createUser: async (userData) => {
     try {
       const newUser = new User(userData);
@@ -12,7 +11,6 @@ const userService = {
     }
   },
 
-  // Retrieve all users
   getAllUsers: async () => {
     try {
       const users = await User.find();
@@ -22,7 +20,6 @@ const userService = {
     }
   },
 
-  // Retrieve a user by ID
   getUserById: async (userId) => {
     try {
       const user = await User.findById(userId);
@@ -32,7 +29,6 @@ const userService = {
     }
   },
 
-  // Update a user by ID
   updateUserById: async (userId, updatedData) => {
     try {
       const updatedUser = await User.findByIdAndUpdate(userId, updatedData, { new: true });

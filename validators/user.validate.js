@@ -1,6 +1,7 @@
 const role = require("../constants/role");
 const { userStatus } = require("../constants/status");
 const Joi = require("joi");
+const User = require("../models/user.model");
 
 const PASSWORD_REGEX = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!.@#$%^&*])(?=.{8,})");
 
@@ -19,4 +20,9 @@ const SIGNIN_VALIDATE_SCHEMA = Joi.object({
   password: Joi.string().required(),
 });
 
-module.exports = { SIGNIN_VALIDATE_SCHEMA, SIGNUP_VALIDATE_SCHEMA };
+const EXIST_USER = async (data) => {
+  const user = await User.findOne({ data });
+  return user ? true : false;
+};
+
+module.exports = { SIGNIN_VALIDATE_SCHEMA, SIGNUP_VALIDATE_SCHEMA, EXIST_USER };

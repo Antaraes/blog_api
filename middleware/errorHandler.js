@@ -26,7 +26,27 @@ exports.handler = (err, req, res, next) => {
         data: null,
       });
       break;
-
+    case "MISSING_FILE":
+      res.status(404).json({
+        status: "fail",
+        message: err.message,
+        data: null,
+      });
+      break;
+    case "UNAUTHORIZED":
+      res.status(401).json({
+        status: "fail",
+        message: err.message,
+        data: null,
+      });
+      break;
+    case "ITEM_ALREADY_EXISTS":
+      res.status(409).json({
+        status: "fail",
+        message: err.message,
+        data: null,
+      });
+      break;
     default:
       res.status(err.statusCode).json({
         status: err.status,
