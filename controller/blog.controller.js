@@ -1,6 +1,14 @@
-const getBlogById = (req, res, next) => {
-  const { id } = req.body;
-  res.json(id);
+const blogService = require("../services/blog.service");
+const { error, success } = require("./base.controller");
+
+const getBlogById = async (req, res, next) => {
+  try {
+    const data = await blogService.getBlogById(req.body);
+    success(res, "Blog Filter", data);
+  } catch (err) {
+    error(res, err.message);
+    next(err);
+  }
 };
 const createBlog = (req, res, next) => {
   const data = req.body;

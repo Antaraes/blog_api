@@ -11,9 +11,21 @@ const userService = {
     }
   },
 
-  getAllUsers: async () => {
+  getAllUsers: async (reqQuery) => {
     try {
-      const users = await User.find();
+      const { skip, limit, sortBy, order, userId } = reqQuery;
+
+      const filter = {};
+
+      if (userId) {
+        filter.userId = userId;
+      }
+
+      const users = await User.find(filter)
+        .skip(parseInt(skip, 10) || 0)
+        .limit(parseInt(limit, 10) || 10)
+        .sort({ [sortBy]: order });
+
       return users;
     } catch (error) {
       throw error;

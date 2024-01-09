@@ -16,6 +16,13 @@ const signin = async (req, res, next) => {
   try {
     const data = await authService.login(req.body);
     res.setHeader("Authorization", data.accessToken);
+    res.cookie("refreshToken", data.refreshToken, {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    });
+    res.cookie("accessToken", data.accessToken, { httpOnly: true, sameSite: "None", secure: true });
     success(res, "login success", data);
   } catch (error) {
     next(error);

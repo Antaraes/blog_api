@@ -14,6 +14,21 @@ exports.getdataFromToken = async (token) => {
   }
 };
 
+exports.getDataFromAuthUser = async (req, res) => {
+  try {
+    const token = req.headers.authorization || req.cookies.accessToken;
+
+    if (!token) {
+      throw invalidError("JWT must be provided");
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return decoded.user;
+  } catch (error) {
+    throw unprocessableError(error.message);
+  }
+};
+
 exports.generateToken = async (token) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

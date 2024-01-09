@@ -78,7 +78,7 @@ const login = async (data) => {
           user: foundUser,
         },
         process.env.JWT_SECRET,
-        { expiresIn: 50 }
+        { expiresIn: "1d" }
       );
       const refreshToken = jwt.sign(
         {

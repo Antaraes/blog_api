@@ -4,6 +4,8 @@ exports.userRouteConst = {
   updateUserStatus: "/change_status",
   getSelfDetails: "/me",
   getUserFilter: "/filter",
+  deleteUser: "/",
+  deleteUserById: "/delete",
 };
 exports.authRouteConst = {
   signup: "/signup",
