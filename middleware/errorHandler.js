@@ -22,7 +22,7 @@ exports.handler = (err, req, res, next) => {
     case "ITEM_NOT_FOUND":
       res.status(404).json({
         status: "fail",
-        message: i18n.__("%s.not.found", i18n.__(err.message)),
+        message: err.message,
         data: null,
       });
       break;

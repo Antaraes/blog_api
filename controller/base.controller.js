@@ -29,7 +29,7 @@ exports.retrieved = (res, name, data = null) => {
     throw itemNotFoundError(name);
   }
 
-  return success(res, name, data);
+  return this.success(res, name, data);
 };
 
 exports.authFail = (res) => {

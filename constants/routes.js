@@ -15,6 +15,12 @@ exports.authRouteConst = {
   getRefreshToken: "/refresh_token",
 };
 exports.blogRouteConst = {
-  initialBlog: "/",
+  initialBlog: "/:blogId",
+  getBlogFilter: "/blogs/filter",
+  updatePostStatus: "/change_status",
   createBlog: "/create",
+};
+
+exports.categoryRouteConst = {
+  initialRoute: "/",
 };

@@ -1,5 +1,5 @@
 const { userStatus } = require("../constants/status");
-const { unprocessableError } = require("../errors/db.errors");
+const { unprocessableError, itemNotFoundError } = require("../errors/db.errors");
 const { generateToken, getDataFromAuthUser } = require("../helper/auth.helper");
 const authService = require("../services/auth.service");
 const userService = require("../services/user.service");
@@ -33,14 +33,14 @@ const changeUserStatus = async (req, res) => {
 
     const user = await userService.getUserById(id);
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      throw itemNotFoundError("User not found");
     }
     const newStatus = user.status === userStatus.active ? userStatus.suspended : userStatus.active;
     const updatedUser = await userService.updateUserById(id, { status: newStatus });
 
     success(res, "User status updated successfully", updatedUser);
   } catch (err) {
-    error(res, err.message);
+    next(err);
   }
 };
 
