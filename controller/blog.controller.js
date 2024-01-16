@@ -6,8 +6,9 @@ const {
   unauthorizedError,
 } = require("../errors/db.errors");
 const { getDataFromAuthUser } = require("../helper/auth.helper");
+const Blog = require("../models/blog.model");
 const blogService = require("../services/blog.service");
-const { error, success } = require("./base.controller");
+const { error, success, retrieved } = require("./base.controller");
 
 const getBlogById = async (req, res, next) => {
   try {
@@ -22,9 +23,18 @@ const getBlogById = async (req, res, next) => {
 
 const getBlogByFilter = async (req, res, next) => {
   try {
-    const data = await blogService.getAllBlogs(req.query);
+    const user = await getDataFromAuthUser(req, res);
+    const data = await blogService.getAllBlogs(req.query, user);
     console.log(data);
     success(res, "Blog Filter", data);
+  } catch (error) {
+    next(error);
+  }
+};
+const getAllBlogs = async (req, res, next) => {
+  try {
+    const data = await blogService.getAllBlogs(req.query);
+    retrieved(res, "All Blogs", data);
   } catch (error) {
     next(error);
   }
@@ -32,12 +42,13 @@ const getBlogByFilter = async (req, res, next) => {
 const createBlog = async (req, res, next) => {
   try {
     const data = req.body;
+    console.log(data);
     const { _id } = await getDataFromAuthUser(req, res);
     if (!_id) {
       unauthorizedError("User not logged in");
     }
     const fileDetailsArray = req.files.map((file) => ({
-      link: file.path,
+      link: `${process.env.SEVER_URL}/images/${file.filename}`,
       name: file.originalname,
       type: file.mimetype,
     }));
@@ -87,7 +98,7 @@ const changeBlogStatus = async (req, res, next) => {
   try {
     const { blogId, status } = req.body;
     const { _id: userId } = await getDataFromAuthUser(req, res);
-    const blog = await blogService.getBlogById(blogId);
+    const blog = await Blog.findById(blogId);
 
     const changeStatusBlog = {
       ...blog.toObject(),
@@ -105,6 +116,7 @@ module.exports = {
   createBlog,
   getBlogByFilter,
   changeBlogStatus,
+  getAllBlogs,
   updateBlogById,
   deleteBlogById,
 };

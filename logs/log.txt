@@ -1,0 +1,94 @@
+{"level":"info","message":"[16/01/2024 13:11:51] -::1:50654 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:11:51] -::1:50654 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:11:51] -::1:50654 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:11:51] -::1:50658 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:12:05] -::1:50680 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:12:05] -::1:50680 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:12:12] -::1:50689 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:13] -::1:50891 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:13] -::1:50891 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:13] -::1:50892 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:19] -::1:50899 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:51] -::1:50983 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:14:51] -::1:50983 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:15:39] -::1:51075 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:15:39] -::1:51075 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:15:39] -::1:51077 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:15:39] -::1:51075 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:15:44] -::1:51083 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:17:31] -::1:51205 -/api/v1/auth/signin -POST -500 -Internal Server Error\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:18:44] -::1:51292 -/api/v1/auth/signup -POST -400 -Bad Request\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:05] -::1:51309 -/api/v1/auth/signup -POST -400 -Bad Request\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:27] -::1:51317 -/api/v1/auth/signup -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:47] -::1:51326 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:48] -::1:51326 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:48] -::1:51331 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:48] -::1:51326 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:19:53] -::1:51343 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:24:28] -::1:51539 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:24:28] -::1:51539 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:24:28] -::1:51541 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:24:28] -::1:51539 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:24:32] -::1:51539 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:25:54] -::1:51592 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:25:54] -::1:51592 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:25:54] -::1:51594 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:25:54] -::1:51592 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:25:58] -::1:51592 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:13] -::1:51749 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:14] -::1:51749 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:14] -::1:51749 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:14] -::1:51752 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:20] -::1:51759 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:24] -::1:51759 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:57] -::1:51796 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:57] -::1:51796 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:57] -::1:51796 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:29:57] -::1:51798 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:30:00] -::1:51801 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:16] -::1:51988 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:16] -::1:51989 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:16] -::1:51988 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:18] -::1:51988 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:22] -::1:51990 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:25] -::1:51990 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:25] -::1:51990 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:28] -::1:51990 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:29] -::1:51990 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:32] -::1:52003 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:34:37] -::1:52014 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:25] -::1:52278 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:25] -::1:52278 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:25] -::1:52282 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:28] -::1:52287 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:45] -::1:52326 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:40:50] -::1:52334 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:41:54] -::1:52348 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:01] -::1:52350 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:04] -::1:52350 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:07] -::1:52355 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:35] -::1:52383 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:35] -::1:52383 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:42:35] -::1:52384 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:44:37] -::1:52422 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:44:37] -::1:52422 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:44:37] -::1:52424 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:44:37] -::1:52425 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 13:44:41] -::1:52425 -/api/v1/blog/blogs/all -GET - -\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:50] -::1:53030 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:50] -::1:53030 -/api/v1/blog/blogs/all -GET -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:50] -::1:53030 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:50] -::1:53031 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:55] -::1:53034 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:02:55] -::1:53034 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:03:46] -::1:53071 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:03:52] -::1:53073 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:03:52] -::1:53073 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:04:04] -::1:53080 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:13:25] -::1:53384 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:18] -::1:55630 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:18] -::1:55630 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:18] -::1:55630 -/images/1705294507891-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:18] -::1:55633 -/images/1705294083274-9c7852c2cc7817668bfaa7c24458cd49.jpg -GET -304 -Not Modified\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:29] -::1:55640 -/api/v1/auth/signin -POST -200 -OK\n - Port: -"}
+{"level":"info","message":"[16/01/2024 14:47:29] -::1:55640 -/api/v1/blog/blogs/all -GET -304 -Not Modified\n - Port: -"}

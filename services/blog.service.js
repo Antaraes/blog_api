@@ -1,6 +1,7 @@
 const role = require("../constants/role");
 const { postStatus } = require("../constants/status");
 const { itemNotFoundError, unauthorizedError, unprocessableError } = require("../errors/db.errors");
+const { getDataFromAuthUser } = require("../helper/auth.helper");
 const Blog = require("../models/blog.model");
 const User = require("../models/user.model");
 const { checkId } = require("./base.service");
@@ -18,13 +19,16 @@ const blogService = {
   },
 
   // Get all blogs with optional query parameters
-  getAllBlogs: async (reqQuery) => {
+  getAllBlogs: async (reqQuery, user) => {
     try {
-      const { skip, limit, sortBy, order } = reqQuery;
+      const { page = 1, pageSize = 4, sortBy = "createdAt", order = "desc", status } = reqQuery;
 
       const filter = {
-        status: "approved",
+        status: postStatus.approved,
       };
+      if (status && user && user.role === role.admin) {
+        filter.status = status;
+      }
 
       let sortCriteria = {};
       if (sortBy && order) {
@@ -34,16 +38,19 @@ const blogService = {
 
       const blogs = await Blog.find(filter)
         .sort(sortCriteria)
-        .skip(parseInt(skip))
-        .limit(parseInt(limit));
-
-      return blogs;
+        .skip((parseInt(page) - 1) * parseInt(pageSize))
+        .limit(parseInt(pageSize))
+        .populate(["created_by", "categories"]);
+      const result = {
+        data: blogs,
+        total: await Blog.countDocuments(filter),
+      };
+      return result;
     } catch (error) {
       console.log("error.message", error.message);
       throw unprocessableError(error);
     }
   },
-
   // Get a blog by ID
   getBlogById: async (blogId) => {
     try {
@@ -72,12 +79,12 @@ const blogService = {
         throw itemNotFoundError("Blog not found");
       }
 
-      if (blog.posted_by !== userId && user.role !== role.admin) {
+      if (!(blog.created_by.equals(userId) || (user && user.role === "admin"))) {
         throw unauthorizedError("Permission denied. You are not the creator of this blog.");
       }
-      console.log(updatedData);
 
       const updatedBlog = await Blog.findByIdAndUpdate(blogId, updatedData, { new: true });
+
       return updatedBlog;
     } catch (error) {
       throw unprocessableError(error);

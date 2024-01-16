@@ -21,6 +21,7 @@ const schemaValidator = (path, useJoiError = true) => {
     if (!supportedMethods.includes(method)) {
       return next();
     }
+    console.log("req.body", req.body);
     const { error, value } = schema.validate(req.body, validationOptions);
     if (error) {
       const joiError = {

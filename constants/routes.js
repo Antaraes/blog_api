@@ -16,6 +16,7 @@ exports.authRouteConst = {
 };
 exports.blogRouteConst = {
   initialBlog: "/:blogId",
+  getAllBlogs: "/blogs/all",
   getBlogFilter: "/blogs/filter",
   updatePostStatus: "/change_status",
   createBlog: "/create",

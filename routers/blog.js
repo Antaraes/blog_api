@@ -5,6 +5,7 @@ const {
   updateBlogById,
   deleteBlogById,
   createBlog,
+  getAllBlogs,
   changeBlogStatus,
   getBlogByFilter,
 } = require("../controller/blog.controller");
@@ -24,5 +25,6 @@ router.post(
 );
 router.post(blogRouteConst.updatePostStatus, verifyAdmin, changeBlogStatus);
 router.get(blogRouteConst.getBlogFilter, getBlogByFilter);
+router.get(blogRouteConst.getAllBlogs, getAllBlogs);
 
 module.exports = router;

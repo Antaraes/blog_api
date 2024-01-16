@@ -11,7 +11,7 @@ const SIGNUP_VALIDATE_SCHEMA = Joi.object({
   confirm_password: Joi.ref("password"),
   email: Joi.string().email().required(),
   phone_number: Joi.string(),
-  role: Joi.string().valid(role.admin, role.user).default(role.user).required(),
+  role: Joi.string().valid(role.admin, role.user).default(role.user),
   description: Joi.string(),
 });
 
