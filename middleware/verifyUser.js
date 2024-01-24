@@ -22,7 +22,7 @@ exports.verifyUser = (req, res, next) => {
 exports.verifyAdmin = (req, res, next) => {
   try {
     const token = req.headers.authorization || req.cookies.accessToken;
-
+    console.log(token);
     if (!token) {
       throw invalidError("JWT must be provided");
     }

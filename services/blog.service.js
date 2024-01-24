@@ -21,15 +21,12 @@ const blogService = {
   // Get all blogs with optional query parameters
   getAllBlogs: async (reqQuery, user) => {
     try {
-      const { page = 1, pageSize = 4, sortBy = "createdAt", order = "desc", status } = reqQuery;
+      const { page = 1, pageSize = 4, sortBy = "createdAt", order = "desc", ...filters } = reqQuery;
 
-      const filter = {
-        status: postStatus.approved,
-      };
-      if (status && user && user.role === role.admin) {
-        filter.status = status;
-      }
-
+      const filter = {};
+      Object.entries(filters).forEach(([key, value]) => {
+        filter[key] = value;
+      });
       let sortCriteria = {};
       if (sortBy && order) {
         sortCriteria[sortBy] = order;
@@ -41,14 +38,46 @@ const blogService = {
         .skip((parseInt(page) - 1) * parseInt(pageSize))
         .limit(parseInt(pageSize))
         .populate(["created_by", "categories"]);
+
+      const pendingTotalBlogs = await Blog.countDocuments({
+        ...filter,
+        status: postStatus.pending,
+      });
+      const rejectTotalBlogs = await Blog.countDocuments({
+        ...filter,
+        status: postStatus.rejected,
+      });
+      const approvedTotalBlogs = await Blog.countDocuments({
+        ...filter,
+        status: postStatus.approved,
+      });
       const result = {
         data: blogs,
         total: await Blog.countDocuments(filter),
+        pendingTotalBlogs,
+        rejectTotalBlogs,
+        approvedTotalBlogs,
       };
       return result;
     } catch (error) {
       console.log("error.message", error.message);
       throw unprocessableError(error);
+    }
+  },
+  getBlogByUser: async (userId) => {
+    try {
+      const blog = await Blog.find({ created_by: userId }).populate({
+        path: "created_by modified_by",
+        model: "User",
+        select: "username email role -_id",
+      });
+
+      if (blog == null) {
+        itemNotFoundError("Blog not found");
+      }
+      return blog;
+    } catch (error) {
+      throw error;
     }
   },
   // Get a blog by ID
@@ -94,12 +123,13 @@ const blogService = {
   // Delete a blog by ID
   deleteBlogById: async (blogId, userId) => {
     try {
+      // const blog = await checkId(blogId, Blog, "Blog Found");
       const blog = await Blog.findById(blogId);
-
+      console.log(blog);
       if (!blog) {
         throw itemNotFoundError("Blog not found");
       }
-      if (blog.posted_by.toString() !== userId) {
+      if (blog.created_by.toString() !== userId) {
         throw unauthorizedError("Permission denied. You are not the creator of this blog.");
       }
       const deletedBlog = await Blog.findByIdAndDelete(blogId);

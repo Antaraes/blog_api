@@ -13,20 +13,23 @@ const userService = {
 
   getAllUsers: async (reqQuery) => {
     try {
-      const { skip, limit, sortBy, order, userId } = reqQuery;
+      const { skip, limit, sortBy, order, ...filters } = reqQuery;
 
       const filter = {};
 
-      if (userId) {
-        filter.userId = userId;
-      }
+      Object.entries(filters).forEach(([key, value]) => {
+        filter[key] = value;
+      });
 
       const users = await User.find(filter)
         .skip(parseInt(skip, 10) || 0)
         .limit(parseInt(limit, 10) || 10)
         .sort({ [sortBy]: order });
+      const activeTotalUsers = await User.countDocuments({ ...filter, status: "active" });
+      const suspendedTotalUsers = await User.countDocuments({ ...filter, status: "suspended" });
+      const totalUsers = await User.countDocuments(users);
 
-      return users;
+      return { users, totalUsers, activeTotalUsers, suspendedTotalUsers };
     } catch (error) {
       throw error;
     }

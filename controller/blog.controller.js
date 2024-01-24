@@ -33,8 +33,17 @@ const getBlogByFilter = async (req, res, next) => {
 };
 const getAllBlogs = async (req, res, next) => {
   try {
-    const data = await blogService.getAllBlogs(req.query);
+    const data = await blogService.getAllBlogs({ ...req.query, status: "approved" });
     retrieved(res, "All Blogs", data);
+  } catch (error) {
+    next(error);
+  }
+};
+const getBlogByUser = async (req, res, next) => {
+  try {
+    const user = await getDataFromAuthUser(req, res);
+    const data = await blogService.getBlogByUser(user._id);
+    success(res, "Blog By User", data);
   } catch (error) {
     next(error);
   }
@@ -85,7 +94,8 @@ const updateBlogById = async (req, res, next) => {
 
 const deleteBlogById = async (req, res, next) => {
   try {
-    const blogId = req.params.blogId;
+    const { blogId } = req.body;
+    console.log(blogId);
     const { _id: userId } = await getDataFromAuthUser(req, res);
     const deletedBlog = await blogService.deleteBlogById(blogId, userId);
     success(res, "Deleted blog", deletedBlog);
@@ -113,6 +123,7 @@ const changeBlogStatus = async (req, res, next) => {
 };
 module.exports = {
   getBlogById,
+  getBlogByUser,
   createBlog,
   getBlogByFilter,
   changeBlogStatus,
