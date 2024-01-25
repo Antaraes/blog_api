@@ -52,6 +52,7 @@ const createBlog = async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
+    console.log(req.files);
     const { _id } = await getDataFromAuthUser(req, res);
     if (!_id) {
       unauthorizedError("User not logged in");

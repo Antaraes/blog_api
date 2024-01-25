@@ -83,11 +83,11 @@ const blogService = {
   // Get a blog by ID
   getBlogById: async (blogId) => {
     try {
-      const blog = await Blog.findById(blogId).populate({
-        path: "created_by modified_by",
-        model: "User",
-        select: "username email role -_id",
-      });
+      const blog = await Blog.findById(blogId).populate([
+        "created_by",
+        "categories",
+        "modified_by",
+      ]);
       await checkId(blogId, Blog, "Blog not found");
       if (blog == null) {
         itemNotFoundError("Blog not found");

@@ -35,7 +35,11 @@ exports.generateToken = async (token) => {
     if (decoded === null) {
       throw invalidError("Invalid Token");
     }
+
     const accessToken = jwt.sign({ user: decoded }, process.env.JWT_SECRET, { expiresIn: "1m" });
+    console.log(accessToken);
     return accessToken;
-  } catch (error) {}
+  } catch (error) {
+    return error;
+  }
 };

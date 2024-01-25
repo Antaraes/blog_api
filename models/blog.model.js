@@ -37,6 +37,7 @@ const blogSchema = new baseSchema({
     default: postStatus.pending,
     enum: [postStatus.pending, postStatus.approved, postStatus.rejected],
   },
+  time_to_read: { type: String, required: true },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);

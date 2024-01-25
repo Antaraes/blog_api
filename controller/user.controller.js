@@ -1,7 +1,9 @@
 const { userStatus } = require("../constants/status");
 const { unprocessableError, itemNotFoundError } = require("../errors/db.errors");
 const { generateToken, getDataFromAuthUser } = require("../helper/auth.helper");
+const User = require("../models/user.model");
 const authService = require("../services/auth.service");
+const { checkId } = require("../services/base.service");
 const userService = require("../services/user.service");
 const { success, error } = require("./base.controller");
 
@@ -30,8 +32,10 @@ const getUserFilter = async (req, res) => {
 const changeUserStatus = async (req, res) => {
   try {
     const { id } = req.body;
+    console.log(id);
 
-    const user = await userService.getUserById(id);
+    const user = await User.findById(id);
+
     if (!user) {
       throw itemNotFoundError("User not found");
     }
