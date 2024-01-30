@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const base = require("./base.model");
-const categorySchema = new base.baseSchema({
+
+const { baseSchema } = require("./base.model");
+const categorySchema = new baseSchema({
   name: {
     type: String,
     trim: true,

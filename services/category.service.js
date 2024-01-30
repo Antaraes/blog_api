@@ -6,6 +6,7 @@ const { checkId } = require("./base.service");
 
 const categoryService = {
   createCategory: async (data) => {
+    console.log(data);
     try {
       const newCategory = new Category(data);
       const savedCategory = await newCategory.save();
@@ -16,15 +17,14 @@ const categoryService = {
   },
   getCategoryList: async () => {
     try {
-      const categories = await Category.find();
+      const categories = await Category.find().populate(["created_by"]);
       return categories;
     } catch (error) {
       throw unprocessableError(error);
     }
   },
-  deleteCategory: async (id, userId) => {
+  deleteCategory: async (id, user) => {
     try {
-      const user = await User.findById(userId);
       await checkId(id, Category, "Category not found");
       if (user.role !== role.admin) {
         throw unauthorizedError("Permission denied");

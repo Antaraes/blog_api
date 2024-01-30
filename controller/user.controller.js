@@ -29,7 +29,7 @@ const getUserFilter = async (req, res) => {
   }
 };
 
-const changeUserStatus = async (req, res) => {
+const changeUserStatus = async (req, res, next) => {
   try {
     const { id } = req.body;
     console.log(id);
@@ -69,7 +69,7 @@ const deleteUserByhimSelf = async (req, res, next) => {
   try {
     const user = await getDataFromAuthUser(req, res);
     const userId = user._id;
-    const data = await userService.deleteUserById(userId);
+    const data = await userService.updateUserById(userId, { status: userStatus.deleted });
     success(res, "Successfully deleted user", data);
   } catch (error) {
     throw unprocessableError(error);

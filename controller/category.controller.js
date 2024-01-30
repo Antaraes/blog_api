@@ -14,7 +14,15 @@ exports.getAllCategories = async (req, res, next) => {
 exports.createCategory = async (req, res, next) => {
   try {
     const data = req.body;
-    const response = await categoryService.createCategory(data);
+    const user = await getDataFromAuthUser(req, res);
+    console.log(user);
+    const newData = {
+      ...data,
+      created_by: user._id,
+      modified_by: user._id,
+    };
+
+    const response = await categoryService.createCategory(newData);
     success(res, "Category created successfully", response);
   } catch (error) {
     next(error);
@@ -25,8 +33,8 @@ exports.deleteCategory = async (req, res, next) => {
   try {
     const { categoryId } = req.body;
     const user = await getDataFromAuthUser(req, res);
-    const { userId } = user._id;
-    const response = await categoryService.deleteCategory(categoryId, userId);
+
+    const response = await categoryService.deleteCategory(categoryId, user);
     success(res, "Delete category", response);
   } catch (error) {
     next(error);

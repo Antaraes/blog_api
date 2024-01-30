@@ -12,7 +12,7 @@ const router = require("express").Router();
 
 router.post(authRouteConst.signup, schemaValidator(authRouteConst.signup), signup);
 router.post(authRouteConst.signin, schemaValidator(authRouteConst.signin), signin);
-router.post(authRouteConst.verification, emailVerification);
+router.get(authRouteConst.verification, emailVerification);
 router.post(authRouteConst.getRefreshToken, refreshToken);
 router.post(authRouteConst.logout, logout);
 

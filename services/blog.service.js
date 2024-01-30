@@ -19,6 +19,8 @@ const blogService = {
   },
 
   // Get all blogs with optional query parameters
+  
+
   getAllBlogs: async (reqQuery, user) => {
     try {
       const { page = 1, pageSize = 4, sortBy = "createdAt", order = "desc", ...filters } = reqQuery;

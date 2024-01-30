@@ -33,7 +33,9 @@ const getBlogByFilter = async (req, res, next) => {
 };
 const getAllBlogs = async (req, res, next) => {
   try {
-    const data = await blogService.getAllBlogs({ ...req.query, status: "approved" });
+    const data = await Blog.find({ status: "approved" })
+      .populate(["created_by", "categories"])
+      .sort("createdAt");
     retrieved(res, "All Blogs", data);
   } catch (error) {
     next(error);

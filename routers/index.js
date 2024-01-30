@@ -4,6 +4,9 @@ const blogRoutes = require("./blog");
 const authRoutes = require("./auth");
 const categoryRoutes = require("./category");
 
+router.get("/", (req, res) => {
+  res.json("success");
+});
 router.use("/user", userRoutes);
 router.use("/blog", blogRoutes);
 router.use("/auth", authRoutes);

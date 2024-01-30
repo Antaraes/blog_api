@@ -42,6 +42,7 @@ const emailVerification = async (req, res, next) => {
 const refreshToken = async (req, res, next) => {
   try {
     const { token } = req.body;
+    console.log(token);
     const data = await generateToken(token);
     success(res, "Token generated Successfully", data);
   } catch (error) {

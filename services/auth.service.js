@@ -42,6 +42,7 @@ const register = async (data) => {
 
     const send_message = `${process.env.CLIENT_URL}/${token}`;
     await sendEmail(data.email, "Verify Email", send_message);
+    console.log(send_message);
     //await for verification userStatus.active === 'active'
     const createdUser = await userService.createUser(user);
     return createdUser;
@@ -69,6 +70,10 @@ const login = async (data) => {
     const { email, password } = data;
     const foundUser = await User.findOne({ email: email });
     if (!foundUser) {
+      throw itemNotFoundError("Username is not found. Invalid login credentials.");
+    }
+    console.log(foundUser);
+    if (foundUser.status === "deleted") {
       throw itemNotFoundError("Username is not found. Invalid login credentials.");
     }
     const match = await bcrypt.compare(password, foundUser.password);

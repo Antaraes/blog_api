@@ -32,14 +32,29 @@ exports.getDataFromAuthUser = async (req, res) => {
 exports.generateToken = async (token) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (decoded === null) {
-      throw invalidError("Invalid Token");
+    console.log("Decoded Token:", decoded);
+
+    if (!decoded.user) {
+      throw invalidError("Invalid Token - Missing 'user' field");
     }
 
-    const accessToken = jwt.sign({ user: decoded }, process.env.JWT_SECRET, { expiresIn: "1m" });
-    console.log(accessToken);
+    const accessToken = jwt.sign(
+      {
+        user: decoded.user,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+    console.log("New Access Token:", accessToken);
+
     return accessToken;
   } catch (error) {
-    return error;
+    if (error.name === "JsonWebTokenError") {
+      throw invalidError("Invalid Token");
+    } else if (error.name === "TokenExpiredError") {
+      throw invalidError("Token Expired");
+    } else {
+      throw error;
+    }
   }
 };
