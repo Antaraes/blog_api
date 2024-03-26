@@ -1,42 +1,44 @@
 const mongoose = require("mongoose");
 const { postStatus } = require("../constants/status");
+const { baseSchema } = require("./base.model");
 
-const blogSchema = mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true,
-    },
-    content: {
-      type: String,
-      required: true,
-    },
-    url_list: {
-      type: [String],
-    },
-    status: {
-      type: String,
-      default: postStatus.pending,
-      enum: [postStatus.pending, postStatus.approved, postStatus.rejected],
-    },
-    posted_by: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    created_at: {
-      type: Date,
-      default: Date.now,
-    },
-    modified_at: {
-      type: Date,
-    },
-    modified_by: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
+const blogSchema = new baseSchema({
+  title: {
+    type: String,
+    required: true,
   },
-  { timestamps: true }
-);
+  content: {
+    type: String,
+    required: true,
+  },
+  url_list: {
+    type: [
+      {
+        link: {
+          type: String,
+          required: true,
+        },
+        name: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    required: true,
+  },
+  categories: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+    },
+  ],
+  status: {
+    type: String,
+    default: postStatus.pending,
+    enum: [postStatus.pending, postStatus.approved, postStatus.rejected],
+  },
+  time_to_read: { type: String, required: true },
+});
 
 const Blog = mongoose.model("Blog", blogSchema);
 module.exports = Blog;

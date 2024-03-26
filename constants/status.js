@@ -1,6 +1,7 @@
 const userStatus = {
   active: "active",
   suspended: "suspended",
+  deleted: "deleted",
 };
 
 const postStatus = {
