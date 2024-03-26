@@ -14,7 +14,7 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+console.log(process.env.CLIENT_PORT);
 app.use(
   cors({
     origin: process.env.CLIENT_PORT,
